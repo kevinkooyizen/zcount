@@ -1,0 +1,11 @@
+console.log("hi");
+$('.info').hide();
+
+$('#new_income').after(
+  "<div class='info'>\
+    <% if @income.yearly.present?  %>\
+      <h1>Yearly Income: <%= @income.yearly %></h1>\
+      <h1>Daily Income: <%= @income.daily %></h1>\
+      <h1>Pay per hour: <%= @income.pay_per_hour %><h1>\
+    <% end %>\
+  </div>");

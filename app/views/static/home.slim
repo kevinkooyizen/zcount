@@ -1,0 +1,10 @@
+= form_for @income, remote: true do |f|
+  = f.label "Monthly Income: "
+  = f.text_field :monthly, placeholder: "Enter your income"
+  br
+  = f.submit
+
+- if @income.yearly.present?
+  h1 Yearly Income: #{@income.yearly}
+  h1 Daily Income: #{@income.daily}
+  h1 Pay per hour: #{@income.pay_per_hour}
