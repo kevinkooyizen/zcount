@@ -1,4 +1,4 @@
-console.log("hi");
+console.log("expenses");
 $('.info').hide();
 
 $('#new_income').after(
@@ -11,6 +11,10 @@ $('#new_income').after(
   <%= form_for @expense, remote: true do |f| %>\
   <%= f.label "Please enter your daily expenses: " %><br>\
   <%= f.text_field :daily, placeholder: "Enter your expenses here" %><br>\
-  <input id="tags_list" name="income[monthly]" type="hidden" value=<%=@income.monthly%> /><br>\
+  <input id="tags_list" name="income[:monthly]" type="hidden" /><br>\
   <%= f.submit "Show net income" %>\
-<% end %></div>');
+  <% end %>\
+  <h1>Daily expense: <%= @expense.daily %></h1>\
+  <h1>Monthly expense: <%= @expense.monthly %></h1>\
+  <h1>Net: <%= @net %></h1>\
+  </div>');
