@@ -1,18 +1,18 @@
-= form_for @user, remote: true do |f|
-  = f.label "Please enter your monthly income: "
-  br
-  = f.text_field :monthly_income, placeholder: "Enter your income here"
-  = f.hidden_field "monthly_expense" , value: @user.monthly_expense
-  br
-  br
-  = f.submit "Show me stats!"
+.info
+  = form_for @user, remote: true do |f|
+    = f.label "Please enter your monthly income: "
+    br
+    = f.text_field :monthly_income, placeholder: "Enter your income here"
+    br
+    br
+    = f.submit "Show me stats!"
 
-- if @user.monthly_income.present?
-  h1 Yearly Income: #{@user.yearly_income}
-  h1 Daily Income: #{@user.daily_income}
-  h1 Pay per hour: #{@user.hourly_income}
-  
-- if @user.monthly_expense.present?
-  h1 Yearly expense: #{@user.yearly_expense}
-  h1 Daily expense: #{@user.daily_expense}
-  h1 Pay per hour: #{@user.hourly_expense}
+/- if @user.monthly_income.present?
+/  h1 Yearly Income: #{@user.yearly_income}
+/  h1 Daily Income: #{@user.daily_income}
+/  h1 Pay per hour: #{@user.hourly_income}
+/
+/- if @user.monthly_expense.present?
+/  h1 Yearly expense: #{@user.yearly_expense}
+/  h1 Daily expense: #{@user.daily_expense}
+/  h1 Pay per hour: #{@user.hourly_expense}
