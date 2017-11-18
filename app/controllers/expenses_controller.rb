@@ -11,6 +11,9 @@ class ExpensesController < ApplicationController
       format.html { render 'static/home' }
       format.js { render :create }
     end
+#     //<%= j(render 'foldername/filename', htmlvariablename: @controllervariablename) %>
+# // j is for not rendering other things(application.html.erb and so on...)
+# // and also to render/not to render javascript
   end
 
   def income_params

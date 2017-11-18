@@ -3,11 +3,9 @@ $('.info').hide();
 
 $('#new_income').after(
   '<div class="info">\
-    <% if @income.yearly.present?  %>\
-      <h1>Yearly Income: <%= @income.yearly %></h1>\
-      <h1>Daily Income: <%= @income.daily %></h1>\
-      <h1>Pay per hour: <%= @income.pay_per_hour %><h1>\
-    <% end %>\
+    <h1>Yearly Income: <%= @income.yearly %></h1>\
+    <h1>Daily Income: <%= @income.daily %></h1>\
+    <h1>Pay per hour: <%= @income.pay_per_hour %><h1>\
   <%= form_for @expense, remote: true do |f| %>\
   <%= f.label "Please enter your daily expenses: " %><br>\
   <%= f.text_field :daily, placeholder: "Enter your expenses here" %><br>\
