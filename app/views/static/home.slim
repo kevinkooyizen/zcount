@@ -2,10 +2,11 @@
   = form_for @user, remote: true do |f|
     = f.label "Please enter your monthly income: "
     br
+    br
     = f.text_field :monthly_income, placeholder: "Enter your income here"
     br
     br
-    = f.submit "Show me stats!"
+    = f.submit "Submit"
 
 /- if @user.monthly_income.present?
 /  h1 Yearly Income: #{@user.yearly_income}

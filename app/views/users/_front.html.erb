@@ -1,0 +1,28 @@
+<div class="info"> 
+  <%= form_for @user, remote: true do |f| %> 
+    <%= f.label "Please enter your monthly income: " %><br><br>
+    <%= f.text_field :monthly_income, placeholder: "Enter your income here" %><br> 
+    <%= f.hidden_field :monthly_expense, value: "#{@user.monthly_expense}" %><br> 
+    <%= f.submit "Submit" %> 
+  <% end %> 
+
+  <% if @user.monthly_income.present?  %> 
+        <h1>Yearly Income: <%= @user.yearly_income %></h1> 
+        <h1>Daily Income: <%= @user.daily_income %></h1> 
+        <h1>Pay per hour: <%= @user.hourly_income %><h1> 
+  <% end %> 
+
+  <%= form_for @user, remote: true do |f| %> 
+    <%= f.label "Please enter your monthly expenses: " %><br> 
+    <%= f.text_field :monthly_expense, placeholder: "Enter your expenses here" %> 
+    <input id="tags_list" name="user[monthly_income]" type="hidden" value="<%= @user.monthly_income %>"/><br> 
+    <%= f.submit "Show net income" %> 
+  <% end %> 
+  
+  <% if @user.monthly_expense.present?  %> 
+    <h1>Daily Expense: <%= @user.daily_expense %></h1> 
+    <h1>Monthly Expense: <%= @user.monthly_expense %></h1> 
+    <h1>Yearly Expense: <%= @user.yearly_expense %></h1> 
+    <h1>Monthly Net Income: <%= @user.net_monthly %></h1> 
+  <% end %> 
+</div>
