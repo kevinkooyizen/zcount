@@ -1,5 +1,6 @@
 class User < ApplicationRecord
-	
+include ActionView::Helpers::NumberHelper
+
 	def yearly_income
 		((self.monthly_income*12)).round(2)
 	end
@@ -9,7 +10,7 @@ class User < ApplicationRecord
 	end
 	
 	def hourly_income
-		(self.monthly_income.to_f/(20*8)).round(2)
+		(self.monthly_income/(20*8)).round(2)
 	end
 	
 	def yearly_expense
@@ -21,7 +22,7 @@ class User < ApplicationRecord
 	end
 	
 	def hourly_expense
-		(self.monthly_expense.to_f/(20*8)).round(2)
+		(self.monthly_expense/(20*8)).round(2)
 	end
 	
 	def net_monthly
