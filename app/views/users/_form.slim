@@ -1,13 +1,25 @@
 .user_form
   = render "users/main_form"
-  h1
-    | Yearly Income: #{number_to_currency(@user.yearly_income, unit: "")}
-  h1
-    | Daily Income: #{number_to_currency(@user.daily_income, unit: "")}
-  h1
-    | Pay per hour: #{number_to_currency(@user.hourly_income, unit: "")}
+
+  h2 Gross:
+  h3 Yearly Income: #{number_to_currency(@user.yearly_income, unit: "")}
+  h3.red Monthly Income: #{number_to_currency(@user.monthly_income, unit: "")}
+  h3 Daily Income: #{number_to_currency(@user.daily_income, unit: "")}
+  h3 Pay per hour: #{number_to_currency(@user.hourly_income, unit: "")}
+
+  h2 After EPF:
+  h3 Yearly Income After EPF: #{number_to_currency(@user.yearly_income_after_epf, unit: "")}
+  h3.red Monthly Income After EPF: #{number_to_currency(@user.monthly_income_after_epf, unit: "")}
+  h3 Daily Income After EPF: #{number_to_currency(@user.daily_income_after_epf, unit: "")}
+  h3 Pay per hour After EPF: #{number_to_currency(@user.hourly_income_after_epf, unit: "")}
+
+  h2 EPF paid:
+  h3 Yearly EPF paid: #{number_to_currency(@user.yearly_epf, unit: "")}
+  h3 Monthly EPF paid: #{number_to_currency(@user.monthly_epf, unit: "")}
+
   = form_for @user, remote: true do |f|
     = f.label "Please enter your monthly expenses: "
+    br
     br
     = f.text_field :monthly_expense, placeholder: "Enter your expenses here"
     = f.hidden_field :monthly_income, value: "#{@user.monthly_income.to_f}"
@@ -15,12 +27,9 @@
     input#tags_list name="user[monthly_income]" type="hidden" value="#{@user.monthly_income}" /
     br
     = f.submit "Show net income"
+
   - if @user.monthly_expense.present?
-    h1
-      | Daily Expense: #{number_to_currency(@user.daily_expense, unit: "")}
-    h1
-      | Monthly Expense: #{number_to_currency(@user.monthly_expense, unit: "")}
-    h1
-      | Yearly Expense: #{number_to_currency(@user.yearly_expense, unit: "")}
-    h1
-      | Monthly Net Income: #{number_to_currency(@user.net_monthly, unit: "")}
+    h3 Daily Expense: #{number_to_currency(@user.daily_expense, unit: "")}
+    h3 Monthly Expense: #{number_to_currency(@user.monthly_expense, unit: "")}
+    h3 Yearly Expense: #{number_to_currency(@user.yearly_expense, unit: "")}
+    h3 Monthly Net Income: #{number_to_currency(@user.net_monthly, unit: "")}

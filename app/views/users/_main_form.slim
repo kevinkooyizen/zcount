@@ -6,10 +6,10 @@
   br
   br
   = f.label :epf, "EPF: "
-  = f.label "8"
-  = f.radio_button :epf, 8
-  = f.label "12"
-  = f.radio_button :epf, 12
+  = f.label "8%"
+  = f.radio_button :epf, 0.08, checked: true
+  = f.label "11%"
+  = f.radio_button :epf, 0.11
   br
   br
   = f.submit "Submit"

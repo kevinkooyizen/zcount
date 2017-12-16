@@ -8,6 +8,6 @@ class UsersController < ApplicationController
 	end
 	
 	def user_params
-		params.require(:user).permit(:monthly_income, :monthly_expense)
+		params.require(:user).permit(:monthly_income, :monthly_expense, :epf)
 	end
 end
