@@ -6,4 +6,11 @@
     = f.text_field :monthly_income, placeholder: "Enter your income here"
     br
     br
+    = f.label :epf, "EPF: "
+    = f.label "8"
+    = f.radio_button :epf, 8
+    = f.label "12"
+    = f.radio_button :epf, 12
+    br
+    br
     = f.submit "Submit"
