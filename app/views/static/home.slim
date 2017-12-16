@@ -1,4 +1,4 @@
-.info
+.user_form
   = form_for @user, remote: true do |f|
     = f.label "Please enter your monthly income: "
     br
@@ -7,13 +7,3 @@
     br
     br
     = f.submit "Submit"
-
-/- if @user.monthly_income.present?
-/  h1 Yearly Income: #{@user.yearly_income}
-/  h1 Daily Income: #{@user.daily_income}
-/  h1 Pay per hour: #{@user.hourly_income}
-/
-/- if @user.monthly_expense.present?
-/  h1 Yearly expense: #{@user.yearly_expense}
-/  h1 Daily expense: #{@user.daily_expense}
-/  h1 Pay per hour: #{@user.hourly_expense}

@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 20171118080245) do
     t.date "birthdate"
     t.decimal "monthly_income", precision: 8, scale: 2
     t.decimal "monthly_expense", precision: 8, scale: 2
+    t.integer "epf", limit: 2, default: 8
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

@@ -1,4 +1,4 @@
-<div class="info"> 
+<div class="user_form">
   <%= form_for @user, remote: true do |f| %> 
     <%= f.label "Please enter your monthly income: " %><br><br>
     <%= f.text_field :monthly_income, placeholder: "Enter your income here" %><br> 
@@ -7,9 +7,9 @@
   <% end %> 
 
   <% if @user.monthly_income.present?  %> 
-        <h1>Yearly Income: <%= number_to_currency(@user.yearly_income, unit: "") %></h1> 
-        <h1>Daily Income: <%= number_to_currency(@user.daily_income, unit: "") %></h1> 
-        <h1>Pay per hour: <%= number_to_currency(@user.hourly_income, unit: "") %><h1> 
+    <h1>Yearly Income: <%= number_to_currency(@user.yearly_income, unit: "") %></h1>
+    <h1>Daily Income: <%= number_to_currency(@user.daily_income, unit: "") %></h1>
+    <h1>Pay per hour: <%= number_to_currency(@user.hourly_income, unit: "") %></h1>
   <% end %> 
 
   <%= form_for @user, remote: true do |f| %> 
