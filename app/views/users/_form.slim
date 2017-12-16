@@ -1,13 +1,5 @@
 .user_form
-  = form_for @user, remote: true do |f|
-    = f.label "Please enter your monthly income: "
-    br
-    br
-    = f.text_field :monthly_income, placeholder: "Enter your income here"
-    br
-    = f.hidden_field :monthly_expense, value: "#{@user.monthly_expense.to_f}"
-    br
-    = f.submit "Submit"
+  = render "users/main_form"
   h1
     | Yearly Income: #{number_to_currency(@user.yearly_income, unit: "")}
   h1
