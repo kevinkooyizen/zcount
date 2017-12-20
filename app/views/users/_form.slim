@@ -9,22 +9,36 @@
 
   - if @user.taxable?
     h2 Tax:
-    h3 Yearly 10% Tax: #{number_to_currency(@user.year_tax_10, unit: "")}
+    h3 Yearly 10% Tax: = number_to_currency(@user.year_tax_10, unit: "")
     h3 Yearly 20% Tax: #{number_to_currency(@user.year_tax_20, unit: "")}
-    h3.red Total yearly Tax: #{number_to_currency(@user.total_year_tax, unit: "")}
+    h3.red Total yearly Tax: #{number_to_currency(@user.year_total_tax, unit: "")}
     h3 Monthly 10% Tax: #{number_to_currency(@user.month_tax_10, unit: "")}
     h3 Monthly 20% Tax: #{number_to_currency(@user.month_tax_20, unit: "")}
-    h3.red Total monthly Tax: #{number_to_currency(@user.total_month_tax, unit: "")}
+    h3.red Total monthly Tax: #{number_to_currency(@user.month_total_tax, unit: "")}
+
+  h2 EPF paid:
+  h3 Yearly EPF paid: #{number_to_currency(@user.year_epf, unit: "")}
+  h3 Monthly EPF paid: #{number_to_currency(@user.month_epf, unit: "")}
 
   h2 After EPF:
   h3 Yearly Income After EPF: #{number_to_currency(@user.year_income_after_epf, unit: "")}
   h3.red Monthly Income After EPF: #{number_to_currency(@user.month_income_after_epf, unit: "")}
   h3 Daily Income After EPF: #{number_to_currency(@user.daily_income_after_epf, unit: "")}
   h3 Pay per hour After EPF: #{number_to_currency(@user.hourly_income_after_epf, unit: "")}
+  
+  h2 SOCSO paid:
+  h3 Yearly SOCSO paid: #{number_to_currency(@user.year_socso, unit: "")}
+  h3 Monthly SOCSO paid: #{number_to_currency(@user.month_socso, unit: "")}
 
-  h2 EPF paid:
-  h3 Yearly EPF paid: #{number_to_currency(@user.year_epf, unit: "")}
-  h3 Monthly EPF paid: #{number_to_currency(@user.month_epf, unit: "")}
+  h2 After SOCSO:
+  h3 Yearly Income After SOCSO: #{number_to_currency(@user.year_income_after_socso, unit: "")}
+  h3.red Monthly Income After SOCSO: #{number_to_currency(@user.month_income_after_socso, unit: "")}
+  h3 Daily Income After SOCSO: #{number_to_currency(@user.daily_income_after_socso, unit: "")}
+  h3 Pay per hour After SOCSO: #{number_to_currency(@user.hourly_income_after_socso, unit: "")}
+
+  h2 Net:
+  h3 Net monthly income: #{number_to_currency(@user.month_after_tax_epf_socso, unit: "")}
+  h3 Net yearly income: #{number_to_currency(@user.year_after_tax_epf_socso, unit: "")}
 
   = form_for @user, remote: true do |f|
     = f.label "Please enter your month expenses: "
