@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 20171118080245) do
   create_table "users", force: :cascade do |t|
     t.string "name"
     t.date "birthdate"
-    t.decimal "monthly_income", precision: 8, scale: 2
-    t.decimal "monthly_expense", precision: 8, scale: 2
+    t.decimal "month_income", precision: 8, scale: 2
+    t.decimal "month_expense", precision: 8, scale: 2
     t.decimal "epf", precision: 2, scale: 2, default: "0.08"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

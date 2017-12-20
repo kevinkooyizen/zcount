@@ -1,4 +1,5 @@
 $(document).ready(function(e){
-    $('#user_monthly_income').focus();
+    $('#user_month_income').focus();
+
 })
 

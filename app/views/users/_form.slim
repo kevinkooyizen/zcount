@@ -2,43 +2,43 @@
   = render "users/main_form"
 
   h2 Gross:
-  h3 Yearly Income: #{number_to_currency(@user.yearly_income, unit: "")}
-  h3.red Monthly Income: #{number_to_currency(@user.monthly_income, unit: "")}
+  h3 Year Income: #{number_to_currency(@user.year_income, unit: "")}
+  h3.red Monthly Income: #{number_to_currency(@user.month_income, unit: "")}
   h3 Daily Income: #{number_to_currency(@user.daily_income, unit: "")}
   h3 Pay per hour: #{number_to_currency(@user.hourly_income, unit: "")}
 
   - if @user.taxable?
     h2 Tax:
-    h3 Yearly 10% Tax: #{number_to_currency(@user.yearly_tax_10, unit: "")}
-    h3 Yearly 20% Tax: #{number_to_currency(@user.yearly_tax_20, unit: "")}
-    h3 Total Yearly Tax: #{number_to_currency(@user.total_yearly_tax, unit: "")}
-    h3 Monthly 10% Tax: #{number_to_currency(@user.monthly_tax_10, unit: "")}
-    h3 Monthly 20% Tax: #{number_to_currency(@user.monthly_tax_20, unit: "")}
-    h3 Total Monthly Tax: #{number_to_currency(@user.total_monthly_tax, unit: "")}
+    h3 Yearly 10% Tax: #{number_to_currency(@user.year_tax_10, unit: "")}
+    h3 Yearly 20% Tax: #{number_to_currency(@user.year_tax_20, unit: "")}
+    h3.red Total yearly Tax: #{number_to_currency(@user.total_year_tax, unit: "")}
+    h3 Monthly 10% Tax: #{number_to_currency(@user.month_tax_10, unit: "")}
+    h3 Monthly 20% Tax: #{number_to_currency(@user.month_tax_20, unit: "")}
+    h3.red Total monthly Tax: #{number_to_currency(@user.total_month_tax, unit: "")}
 
   h2 After EPF:
-  h3 Yearly Income After EPF: #{number_to_currency(@user.yearly_income_after_epf, unit: "")}
-  h3.red Monthly Income After EPF: #{number_to_currency(@user.monthly_income_after_epf, unit: "")}
+  h3 Yearly Income After EPF: #{number_to_currency(@user.year_income_after_epf, unit: "")}
+  h3.red Monthly Income After EPF: #{number_to_currency(@user.month_income_after_epf, unit: "")}
   h3 Daily Income After EPF: #{number_to_currency(@user.daily_income_after_epf, unit: "")}
   h3 Pay per hour After EPF: #{number_to_currency(@user.hourly_income_after_epf, unit: "")}
 
   h2 EPF paid:
-  h3 Yearly EPF paid: #{number_to_currency(@user.yearly_epf, unit: "")}
-  h3 Monthly EPF paid: #{number_to_currency(@user.monthly_epf, unit: "")}
+  h3 Yearly EPF paid: #{number_to_currency(@user.year_epf, unit: "")}
+  h3 Monthly EPF paid: #{number_to_currency(@user.month_epf, unit: "")}
 
   = form_for @user, remote: true do |f|
-    = f.label "Please enter your monthly expenses: "
+    = f.label "Please enter your month expenses: "
     br
     br
-    = f.text_field :monthly_expense, placeholder: "Enter your expenses here"
-    = f.hidden_field :monthly_income, value: "#{@user.monthly_income.to_f}"
+    = f.text_field :month_expense, placeholder: "Enter your expenses here"
+    = f.hidden_field :month_income, value: "#{@user.month_income.to_f}"
     br
-    input#tags_list name="user[monthly_income]" type="hidden" value="#{@user.monthly_income}" /
+    input#tags_list name="user[month_income]" type="hidden" value="#{@user.month_income}" /
     br
     = f.submit "Show net income"
 
-  - if @user.monthly_expense.present?
+  - if @user.month_expense.present?
     h3 Daily Expense: #{number_to_currency(@user.daily_expense, unit: "")}
-    h3 Monthly Expense: #{number_to_currency(@user.monthly_expense, unit: "")}
-    h3 Yearly Expense: #{number_to_currency(@user.yearly_expense, unit: "")}
-    h3 Monthly Net Income: #{number_to_currency(@user.net_monthly, unit: "")}
+    h3 Monthly Expense: #{number_to_currency(@user.month_expense, unit: "")}
+    h3 Yearly Expense: #{number_to_currency(@user.year_expense, unit: "")}
+    h3 Monthly Net Income: #{number_to_currency(@user.net_month, unit: "")}

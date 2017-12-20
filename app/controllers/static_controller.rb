@@ -5,7 +5,7 @@ class StaticController < ApplicationController
   end
   
   def user_params
-    params.require(:user).permit(:monthly_income, :monthly_expense)
+    params.require(:user).permit(:month_income, :month_expense)
   end
   
 end
