@@ -7,6 +7,11 @@
   h3 Daily Income: #{number_to_currency(@user.daily_income, unit: "")}
   h3 Pay per hour: #{number_to_currency(@user.hourly_income, unit: "")}
 
+  - if @user.taxable?
+    h2 Tax:
+    h3 10% Tax: #{number_to_currency(@user.yearly_tax_10, unit: "")}
+    h3 20% Tax: #{number_to_currency(@user.yearly_tax_20, unit: "")}
+
   h2 After EPF:
   h3 Yearly Income After EPF: #{number_to_currency(@user.yearly_income_after_epf, unit: "")}
   h3.red Monthly Income After EPF: #{number_to_currency(@user.monthly_income_after_epf, unit: "")}

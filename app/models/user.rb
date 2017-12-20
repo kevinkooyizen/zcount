@@ -1,6 +1,36 @@
 class User < ApplicationRecord
 	include ActionView::Helpers::NumberHelper
 
+	# Tax
+	
+	def taxable?
+		if self.monthly_income > 3000
+			true
+		else
+			false
+		end
+	end
+	
+	def yearly_tax_10
+		if self.yearly_income >= 50000
+			(50000-36000) * 0.1
+		else
+			(self.yearly_income - 36000) * 0.1
+		end
+	end
+	
+	def yearly_tax_20
+		(self.yearly_income - 50000)*0.2
+	end
+	
+	def monthly_tax_10
+		self.yearly_tax_10/12
+	end
+	
+	def monthly_tax_20
+		self.yearly_tax_20/12
+	end
+	
 	# Gross
 	def yearly_income
 		self.monthly_income*12
