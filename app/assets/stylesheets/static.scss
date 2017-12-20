@@ -2,21 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#new_user {
-  text-align: center;
-}
-
-.user_form {
-  text-align: center;
-}
-
-.expense_form {
-  text-align: center;
-}
-
-.user_form h2 {
-  color: blue;
-}
+// Colours
 
 .red {
   color: red;
@@ -25,3 +11,39 @@
 .blue {
   color: blue;
 }
+
+.green {
+  color: green;
+}
+
+// Displayed information
+
+.info {
+  margin: auto;
+  display: flex;
+}
+
+.tables {
+  margin:auto;
+}
+
+// User forms
+
+.user_form {
+  width: 220px;
+  margin: auto;
+}
+
+.expense_form {
+  text-align: center;
+}
+
+.title {
+  font-weight: bold;
+  font-size: 30px;
+  color: blue;
+  float: left;
+}
+
+
+
