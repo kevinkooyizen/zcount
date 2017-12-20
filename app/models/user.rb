@@ -31,6 +31,14 @@ class User < ApplicationRecord
 		self.yearly_tax_20/12
 	end
 	
+	def total_yearly_tax
+		self.yearly_tax_10 + self.yearly_tax_20
+	end
+	
+	def total_monthly_tax
+		self.monthly_tax_10 + self.monthly_tax_20
+	end
+	
 	# Gross
 	def yearly_income
 		self.monthly_income*12
