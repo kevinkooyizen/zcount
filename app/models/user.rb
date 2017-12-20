@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 	include ActionView::Helpers::NumberHelper
 
-	# SOCSO
+	# EPF & SOCSO
 	
 	def year_socso
 		0.005*self.year_income
@@ -27,8 +27,6 @@ class User < ApplicationRecord
 		self.hourly_income*(1-0.005)
 	end
 
-	# EPF
-	
 	def year_epf
 		self.epf*self.year_income
 	end
@@ -51,6 +49,14 @@ class User < ApplicationRecord
 	
 	def hourly_income_after_epf
 		self.hourly_income*(1-self.epf)
+	end
+	
+	def year_epf_socso
+		self.year_epf + self.year_socso
+	end
+	
+	def month_epf_socso
+		self.month_epf + self.month_socso
 	end
 	
 	# EXPENSES

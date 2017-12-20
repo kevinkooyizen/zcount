@@ -46,22 +46,13 @@
           br
 
         tr
-          th EPF
+          th EPF & SOCSO
         tr
-          td.table_info Yearly EPF paid:
-          td.table_value #{number_to_currency(@user.year_epf, unit: "")}
+          td.table_info Yearly paid:
+          td.table_value #{number_to_currency(@user.year_epf_socso, unit: "")}
         tr
-          td.table_info Monthly EPF paid:
-          td.table_value #{number_to_currency(@user.month_epf, unit: "")}
-
-        tr
-          th SOCSO
-        tr
-          td.table_info Yearly SOCSO paid:
-          td.table_value #{number_to_currency(@user.year_socso, unit: "")}
-        tr
-          td.table_info Monthly SOCSO paid:
-          td.table_value #{number_to_currency(@user.month_socso, unit: "")}
+          td.table_info Monthly paid:
+          td.table_value #{number_to_currency(@user.month_epf_socso, unit: "")}
 
         tr
           th Net income
