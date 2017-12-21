@@ -27,30 +27,6 @@
           td.table_info Pay per hour
           td.table_value #{number_to_currency(@user.hourly_income, unit: "")}
 
-        - if @user.taxable?
-          tr
-            th.table_head Tax
-          tr
-            td.table_info Yearly 10% Tax:
-            td.table_value #{number_to_currency(@user.month_tax_10, unit: "")}
-          tr
-            td.table_info Yearly 20% Tax:
-            td.table_value #{number_to_currency(@user.month_tax_20, unit: "")}
-          tr
-            td.table_info Total Yearly Tax:
-            td.table_value #{number_to_currency(@user.month_total_tax, unit: "")}
-          tr
-            td.table_info Monthly 10% Tax:
-            td.table_value #{number_to_currency(@user.year_tax_10, unit: "")}
-          tr
-            td.table_info Monthly 20% Tax:
-            td.table_value #{number_to_currency(@user.year_tax_20, unit: "")}
-          tr
-            td.table_info Total Monthly Tax:
-            td.table_value #{number_to_currency(@user.year_total_tax, unit: "")}
-
-          br
-
         tr
           th.table_head EPF & SOCSO
         tr
@@ -67,6 +43,22 @@
           td.table_value #{number_to_currency(@user.year_socso, unit: "")}
           td.total_value.red #{number_to_currency(@user.year_epf_socso, unit: "")}
 
+        - if @user.taxable?
+          tr
+            th.table_head Tax
+            tr
+              td.table_info 10% Tax:
+              td
+              td.table_value #{number_to_currency(@user.month_tax_10, unit: "")}
+              td
+              td.table_value #{number_to_currency(@user.year_tax_10, unit: "")}
+            tr
+              td.table_info 20% Tax:
+              td
+              td.table_value #{number_to_currency(@user.month_tax_20, unit: "")}
+              td
+              td.table_value #{number_to_currency(@user.year_tax_20, unit: "")}
+
         tr
           td
           td
@@ -76,6 +68,7 @@
           td
           td
             hr
+
         tr
           td.table_head Net income
           td
@@ -83,7 +76,6 @@
           td.total_value #{number_to_currency(@user.month_after_tax_epf_socso, unit: "")}
           td
           td.total_value #{number_to_currency(@user.year_after_tax_epf_socso, unit: "")}
-
 .user_form
 
   = form_for @user, remote: true do |f|
