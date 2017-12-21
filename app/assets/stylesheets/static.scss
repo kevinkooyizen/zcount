@@ -1,20 +1,6 @@
 // Place all the styles related to the static controller here.
-// They will automatically be included in application.css.
+// They will automatically be included in application.scss.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-
-// Colours
-
-.red {
-  color: red;
-}
-
-.blue {
-  color: blue;
-}
-
-.green {
-  color: green;
-}
 
 // Displayed information
 
@@ -46,18 +32,28 @@
 }
 
 .info_table {
-  width: 300px;
   border-style: solid;
   border-color: black;
   margin-bottom: 20px;
 }
 
-.info_table th {
-  color: blue;
+.info_table th.table_head {
   text-align: left;
   padding-top: 20px;
+  font-size: 20px;
 }
 
 .table_value {
   text-align: right;
+  min-width: 90px;
+  padding-right: 10px;
+}
+
+.table_info {
+  min-width: 200px;
+}
+
+.total_value {
+  @extend .table_value;
+  font-weight: bold;
 }
